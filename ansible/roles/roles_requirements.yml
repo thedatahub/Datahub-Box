@@ -1,0 +1,38 @@
+---
+
+- src: git+https://github.com/geerlingguy/ansible-role-git.git
+  version: "1.2.1"
+  name: geerlingguy.git
+
+- src: git+https://github.com/geerlingguy/ansible-role-nginx.git
+  version: "master"
+  name: geerlingguy.nginx
+
+- src: git+https://github.com/geerlingguy/ansible-role-php.git
+  version: "master"
+  name: geerlingguy.php
+
+- src: git+https://github.com/geerlingguy/ansible-role-php-pecl.git
+  version: "master"
+  name: geerlingguy.php-pecl
+
+- src: git+https://github.com/geerlingguy/ansible-role-composer.git
+  version: "master"
+  name: geerlingguy.composer
+
+- src: git+https://github.com/geerlingguy/ansible-role-java.git
+  version: "master"
+  name: geerlingguy.java
+
+- src: git+https://github.com/geerlingguy/ansible-role-solr.git
+  version: "master"
+  name: geerlingguy.solr
+
+- src: git+https://github.com/geerlingguy/ansible-role-ruby.git
+  version: "2.4.2"
+  name: geerlingguy.ruby
+
+- src: git+https://github.com/UnderGreen/ansible-role-mongodb.git
+  version: "v2.0.2"
+  name: undergreen.mongo
+

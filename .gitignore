@@ -1,0 +1,6 @@
+.vagrant
+**/*.retry
+packer/packer_cache
+packer/build/*.box
+output-virtualbox-iso
+output-vmware-iso

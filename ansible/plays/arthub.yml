@@ -1,0 +1,70 @@
+---
+
+- name: arthub.yml | All roles
+  hosts: localhost
+  become: true
+  gather_facts: true
+
+  pre_tasks:
+
+    - name: Installing repo for Java 8 in Ubuntu
+      become: true
+      apt_repository: repo='ppa:webupd8team/java'
+
+    - name: Add ppa Repository
+      become: true
+      apt_repository: repo=ppa:ondrej/php
+
+    - name: Update apt
+      become: true
+      apt: update_cache=yes
+
+    - name: Install System Packages
+      apt: pkg={{ item }} state=latest
+      with_items:
+        - libcurl4-openssl-dev
+        - pkg-config
+        - libssl-dev
+        - libsslcommon2-dev
+
+    - name: Remove system Ruby
+      apt:
+        name: ruby
+        state: absent
+
+  post_tasks:
+
+    - name: create mongo ini file for PHP
+      lineinfile:
+         dest: "/etc/php/7.0/mods-available/mongodb.ini"
+         line: "extension=mongodb.so"
+         create: yes
+         state: present
+
+    - name: symlink mongo ini file for PHP FPM
+      file:
+         src: "/etc/php/7.0/mods-available/mongodb.ini"
+         dest: "/etc/php/7.0/fpm/conf.d/30-mongodb.ini"
+         state: link
+      notify: restart php-fpm
+
+    - name: symlink mongo ini file for PHP CI
+      file:
+         src: "/etc/php/7.0/mods-available/mongodb.ini"
+         dest: "/etc/php/7.0/cli/conf.d/30-mongodb.ini"
+         state: link
+      notify: restart php-fpm
+
+  roles:
+    - { role: geerlingguy.git,                       tags: [ "git" ] }
+    - { role: geerlingguy.nginx,                     tags: [ "nginx" ] }
+    - { role: geerlingguy.php,                       tags: [ "php" ] }
+    - { role: geerlingguy.php-pecl,                  tags: [ "php-pecl" ] }
+    - { role: geerlingguy.composer,                  tags: [ "composer" ] }
+    - { role: undergreen.mongo,                      tags: [ "mongo" ] }
+    - { role: datahub.catmandu,                      tags: [ "catmandu" ] }
+    - { role: geerlingguy.java,                      tags: [ "java" ] }
+    - { role: geerlingguy.solr,                      tags: [ "solr" ] }
+    - { role: geerlingguy.ruby,                      tags: [ "ruby" ] }
+    - { role: datahub.blacklight,                    tags: [ "blacklight" ] }
+

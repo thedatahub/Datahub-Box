@@ -1,0 +1,8 @@
+# This is inventory file for development stage
+
+[arthub]
+192.168.2.152 ansible_ssh_user=vagrant ansible_ssh_private_key_file=~/Machines/arthub/.vagrant/machines/default/virtualbox/private_key
+
+[localhost]
+localhost ansible_connection=local
+
