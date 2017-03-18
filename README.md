@@ -1,22 +1,20 @@
 # Datahub Box (Vagrant, Packer and Ansible)
 
-[![Software License][ico-license]](LICENSE)
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
 
-This repository builds and configures a virtual image containing the necessary
-dependencies for [thedatahub/datahub](github.com/thedatahub/datahub) and
-[projectblacklight/blacklight](https://github.com/projectblacklight/blacklight)
-for developers.
+
+
+This project builds and configures a virtual image containing the necessary
+dependencies for developing, deploying and managing [thedatahub/datahub](github.com/thedatahub/datahub) and [projectblacklight/blacklight](https://github.com/projectblacklight/blacklight)
+on a local or remote hosts.
 
 You'll get an [Ubuntu 14.04.01 Server (AMD 64)](old-releases.ubuntu.com/releases/trusty/)
-box ready for use with [Vagrant](https://www.vagrantup.com/). The box is
+box ready for use with [Vagrant](https://www.vagrantup.com/). This box is
 provisioned with [Ansible](https://www.ansible.com/).
 
-Because provisioning from scratch can take a while, packer support is included
-to generate a provisioned base box which you can reuse each time you destroy an
-instance.
-
-The Ansible script allow you to to provision production or staging environments
-on remote hosts.
+Provisioning from scratch can take a while, so [Packer](http://www.packer.io/)
+support is included to generate a provisioned base box which you can reuse each
+time you destroy an instance.
 
 ## Requirements
 
@@ -49,7 +47,7 @@ $ packer build datahub.json
 After a few minutes, Packer should tell you the box was generated succesfully.
 You'll find the box file in the `packer/build` directory.
 
-Running the datahub box:
+Running the datahub box on a local host (laptop, desktop, development machine):
 
 ```
 $ vagrant up
@@ -70,6 +68,10 @@ Access:
 |  http://blacklight.box      |  Your Project Blacklight instance  |
 |  http://blacklight.box:3000 |  Direct access to Rails server     |
 |  http://blacklight.box:8983 |  Direct access to Solr             |
+
+Alternatively, you can just run the Ansible playbook after altering the included
+inventory file. This ables developers to deploy a fully fledged environment to
+a remote host.
 
 ## Contents
 
@@ -101,6 +103,4 @@ Copyright 2016 - PACKED vzw, Vlaamse Kunstcollectie vzw
 ## License
 
 This library is free software; you can redistribute it and/or modify it under the terms of the GPLv3.
-
-
 
