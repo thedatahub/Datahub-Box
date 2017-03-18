@@ -12,9 +12,9 @@
     },
     {
       "type": "ansible-local",
-      "playbook_file": "../ansible/plays/arthub.yml",
+      "playbook_file": "../ansible/plays/datahub.yml",
       "group_vars": "../ansible/group_vars",
-      "inventory_file": "../ansible/arthub",
+      "inventory_file": "../ansible/datahub",
       "role_paths": [
         "../ansible/roles/external/geerlingguy.git",
         "../ansible/roles/external/geerlingguy.nginx",
@@ -23,7 +23,7 @@
         "../ansible/roles/external/geerlingguy.composer",
         "../ansible/roles/external/undergreen.mongo",
         "../ansible/roles/internal/datahub.catmandu",
-        "../ansible/roles/external/geerlingguy.java",
+        "../ansible/roles/internal/geerlingguy.java",
         "../ansible/roles/external/geerlingguy.solr",
         "../ansible/roles/external/geerlingguy.ruby",
         "../ansible/roles/internal/datahub.blacklight"
@@ -37,7 +37,7 @@
 	],
 	"post-processors": [
 		{
-			"output": "build/arthub-trusty64.box",
+			"output": "build/datahub-trusty64.box",
 			"type": "vagrant"
 		}
 	],
@@ -74,7 +74,7 @@
       "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
       "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
       "virtualbox_version_file": ".vbox_version",
-      "vm_name": "packer-arthub-ubuntu-14.04-amd64",
+      "vm_name": "packer-datahub-ubuntu-14.04-amd64",
       "vboxmanage": [
         [
           "modifyvm",

@@ -26,9 +26,7 @@ Vagrant.configure(2) do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  # config.vm.box = "ubuntu/trusty64"
-  # config.vm.box_url = "https://vagrantcloud.com/ubuntu/boxes/trusty64/versions/14.04/providers/virtualbox.box"
-  config.vm.box = "file://packer/build/arthub-trusty64.box"
+  config.vm.box = "file://packer/build/datahub-trusty64.box"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -71,10 +69,10 @@ Vagrant.configure(2) do |config|
   # View the documentation for the provider you are using for more
   # information on available options.
   config.vm.provider :virtualbox do |v|
-      v.name = "arthub"
+      v.name = "Datahub Box"
       v.customize [
           "modifyvm", :id,
-          "--name", "arthub",
+          "--name", "datahub-box",
           "--memory", 5120,
           "--cpus", 1,
       ]

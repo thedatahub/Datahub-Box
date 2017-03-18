@@ -1,6 +1,6 @@
 ---
 
-- name: arthub.yml | All roles
+- name: datahub.yml | All roles
   hosts: localhost
   become: true
   gather_facts: true

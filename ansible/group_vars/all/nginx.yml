@@ -2,7 +2,7 @@
 
 nginx_vhosts:
   - listen: "80"
-    server_name: "arthub.box"
+    server_name: "datahub.box"
     root: "/vagrant/datahub/web"
     index: "index.php index.html index.htm"
 #    error_page: ""

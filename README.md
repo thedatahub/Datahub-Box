@@ -1,4 +1,4 @@
-# Arthub Ansible
+# Datahub Box (Vagrant, Packer and Ansible)
 
 [![Software License][ico-license]](LICENSE)
 
@@ -15,6 +15,9 @@ Because provisioning from scratch can take a while, packer support is included
 to generate a provisioned base box which you can reuse each time you destroy an
 instance.
 
+The Ansible script allow you to to provision production or staging environments
+on remote hosts.
+
 ## Requirements
 
 The following software must be installed/present on your local machine before
@@ -29,16 +32,24 @@ you can use Packer to build the Vagrant box file:
 ## How to use
 
 Make sure you have all the required software (listed above) before is installed,
-then cd into the `packer` directory and run:
+then cd into the `ansible/extension/setup` directory and run:
 
 ```
-$ packer build arthub.json
+$ sh role_update.sh
+```
+
+This script will pull down a set of external ansible roles created and
+maintained by other authors. These are installed in the `ansible/roles/external`
+directory. Then cd into the `packer` directory and run:
+
+```
+$ packer build datahub.json
 ```
 
 After a few minutes, Packer should tell you the box was generated succesfully.
 You'll find the box file in the `packer/build` directory.
 
-Running the arthub box:
+Running the datahub box:
 
 ```
 $ vagrant up
@@ -47,7 +58,7 @@ $ vagrant up
 Append these lines to your `/etc/hosts` file:
 
 ```
-192.168.1.152   arthub.box       # http://arthub.box
+192.168.1.152   datahub.box       # http://datahub.box
 192.168.1.152   blacklight.box   # http://blacklight.box
 ```
 
@@ -55,14 +66,14 @@ Access:
 
 | URL                         |  Destination                       |
 | --------------------------- |  --------------------------------- |
-|  http://arthub.box          |  Your datahub instance             |
+|  http://datahub.box         |  Your datahub instance             |
 |  http://blacklight.box      |  Your Project Blacklight instance  |
 |  http://blacklight.box:3000 |  Direct access to Rails server     |
 |  http://blacklight.box:8983 |  Direct access to Solr             |
 
 ## Contents
 
-The Arthub box provides you with a fully fledged environment in which you can
+The Datahub box provides you with a fully fledged environment in which you can
 deploy an instance of [thedatahub/datahub](github.com/thedatahub/datahub) and
 (optional) an instance of [projectblacklight/blacklight](https://github.com/projectblacklight/blacklight).
 
