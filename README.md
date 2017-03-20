@@ -2,8 +2,6 @@
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
 
-
-
 This project builds and configures a virtual image containing the necessary
 dependencies for developing, deploying and managing [thedatahub/datahub](github.com/thedatahub/datahub) and [projectblacklight/blacklight](https://github.com/projectblacklight/blacklight)
 on a local or remote hosts.
@@ -56,7 +54,7 @@ $ vagrant up
 Append these lines to your `/etc/hosts` file:
 
 ```
-192.168.1.152   datahub.box       # http://datahub.box
+192.168.1.152   datahub.box      # http://datahub.box
 192.168.1.152   blacklight.box   # http://blacklight.box
 ```
 
@@ -64,10 +62,10 @@ Access:
 
 | URL                         |  Destination                       |
 | --------------------------- |  --------------------------------- |
-|  http://datahub.box         |  Your datahub instance             |
+|  http://datahub.box         |  Your datahub instance             |
 |  http://blacklight.box      |  Your Project Blacklight instance  |
 |  http://blacklight.box:3000 |  Direct access to Rails server     |
-|  http://blacklight.box:8983 |  Direct access to Solr             |
+|  http://blacklight.box:8983 |  Direct access to Solr             |
 
 Alternatively, you can just run the Ansible playbook after altering the included
 inventory file. This ables developers to deploy a fully fledged environment to
