@@ -3,7 +3,8 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0)
 
 This project builds and configures a virtual image containing the necessary
-dependencies for developing, deploying and managing [thedatahub/datahub](github.com/thedatahub/datahub) and [projectblacklight/blacklight](https://github.com/projectblacklight/blacklight)
+dependencies for developing, deploying and managing [thedatahub/datahub](github.com/thedatahub/datahub)
+and [projectblacklight/blacklight](https://github.com/projectblacklight/blacklight)
 on a local or remote hosts.
 
 You'll get an [Ubuntu 14.04.01 Server (AMD 64)](old-releases.ubuntu.com/releases/trusty/)
@@ -23,6 +24,8 @@ you can use Packer to build the Vagrant box file:
   - [Vagrant](http://vagrantup.com/)
   - [VirtualBox](https://www.virtualbox.org/) (if you want to build the
     VirtualBox box)
+  - [VMware Fusion](http://www.vmware.com/products/fusion/) (or Workstation - if
+    you want to build the VMware box)
   - [Ansible](http://docs.ansible.com/intro_installation.html)
 
 ## How to use
@@ -45,10 +48,26 @@ $ packer build datahub.json
 After a few minutes, Packer should tell you the box was generated succesfully.
 You'll find the box file in the `packer/build` directory.
 
-Running the datahub box on a local host (laptop, desktop, development machine):
+If you want to only build a box for one of the supported virtualization
+platforms (e.g. only build the VMware box), add --only=vmware-iso to the packer
+build command:
 
 ```
-$ vagrant up
+$ packer build --only=vmware-iso datahub.json
+```
+
+## Using built boxes
+
+There's an included Vagrantfile that allows quick testing of the built Vagrant
+boxes. From this same directory, run one of the following commands after
+building the boxes:
+
+```
+# For VMware Fusion:
+$ vagrant up vmware --provider=vmware_fusion
+
+# For VirtualBox:
+$ vagrant up virtualbox --provider=virtualbox
 ```
 
 Append these lines to your `/etc/hosts` file:
@@ -100,5 +119,6 @@ Copyright 2016 - PACKED vzw, Vlaamse Kunstcollectie vzw
 
 ## License
 
-This library is free software; you can redistribute it and/or modify it under the terms of the GPLv3.
+This library is free software; you can redistribute it and/or modify it under
+the terms of the GPLv3.
 
