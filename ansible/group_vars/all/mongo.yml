@@ -3,7 +3,7 @@
 mongodb_package: mongodb-org
 mongodb_version: "3.2"
 
-mongodb_security_authorization: "enabled"
+mongodb_security_authorization: "disabled"
 
 mongodb_user_admin_name: "siteUserAdmin"
 mongodb_user_admin_password: "passw0rd"
@@ -18,6 +18,6 @@ mongodb_users:
   - {
     name: "datahub",
     password: "datahub",
-    roles: "readWrite",
+    roles: "dbOwner",
     database: "datahub"
 }
