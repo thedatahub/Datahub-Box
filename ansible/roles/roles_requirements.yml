@@ -16,10 +16,6 @@
   version: "master"
   name: geerlingguy.php-pecl
 
-- src: git+https://github.com/geerlingguy/ansible-role-php-tideways.git
-  version: "master"
-  name: geerlingguy.php-tideways
-
 - src: git+https://github.com/geerlingguy/ansible-role-composer.git
   version: "master"
   name: geerlingguy.composer
