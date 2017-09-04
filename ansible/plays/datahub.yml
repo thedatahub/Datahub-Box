@@ -62,7 +62,7 @@
     - { role: geerlingguy.php-pecl,                  tags: [ "php-pecl" ] }
     - { role: geerlingguy.composer,                  tags: [ "composer" ] }
     - { role: undergreen.mongo,                      tags: [ "mongo" ] }
-    - { role: datahub.catmandu,                      tags: [ "catmandu" ] }
+#    - { role: datahub.catmandu,                      tags: [ "catmandu" ] }
     - { role: geerlingguy.java,                      tags: [ "java" ] }
     - { role: geerlingguy.solr,                      tags: [ "solr" ] }
     - { role: geerlingguy.ruby,                      tags: [ "ruby" ] }
