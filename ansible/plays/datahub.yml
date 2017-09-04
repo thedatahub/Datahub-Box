@@ -22,6 +22,7 @@
     - name: Install System Packages
       apt: pkg={{ item }} state=latest
       with_items:
+        - unzip
         - libcurl4-openssl-dev
         - pkg-config
         - libssl-dev
