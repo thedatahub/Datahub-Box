@@ -1,7 +1,7 @@
 ---
 
 - name: datahub.yml | All roles
-  hosts: localhost
+  hosts: datahub
   become: true
   gather_facts: true
 
