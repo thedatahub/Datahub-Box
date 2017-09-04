@@ -100,12 +100,11 @@ This box contains Ubuntu 14.04.1 Server (AMD 64) with these packages:
 
 * Git
 * PHP-FPM 7 (with mongdb extension)
-* Ruby 2.3.3 (with rails and bundler)
+* Ruby 2.4.1 (with rails and bundler)
 * Perl 5.14.1 (with plenv)
 * Oracle Java 8
 * Nginx
 * MongoDB 3.2
-* Catmandu 1.0
 * Rails 5.0.0
 * Solr 6.4.2
 
