@@ -22,11 +22,12 @@
     - name: Install System Packages
       apt: pkg={{ item }} state=latest
       with_items:
-        - unzip
+        - zip
         - libcurl4-openssl-dev
         - pkg-config
         - libssl-dev
         - libsslcommon2-dev
+        - libsqlite3-dev
 
     - name: Remove system Ruby
       apt:
