@@ -24,7 +24,6 @@
         "../ansible/roles/external/undergreen.mongo",
         "../ansible/roles/internal/datahub.catmandu",
         "../ansible/roles/internal/geerlingguy.java",
-        "../ansible/roles/external/geerlingguy.solr",
         "../ansible/roles/external/geerlingguy.ruby",
         "../ansible/roles/internal/datahub.blacklight"
       ]

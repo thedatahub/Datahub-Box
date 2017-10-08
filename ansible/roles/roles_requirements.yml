@@ -20,10 +20,6 @@
   version: "master"
   name: geerlingguy.composer
 
-- src: git+https://github.com/geerlingguy/ansible-role-solr.git
-  version: "master"
-  name: geerlingguy.solr
-
 - src: git+https://github.com/geerlingguy/ansible-role-ruby.git
   version: "2.4.2"
   name: geerlingguy.ruby
