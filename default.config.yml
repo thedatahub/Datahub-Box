@@ -1,0 +1,59 @@
+---
+
+vagrant_box: datahub-trusty64
+vagrant_box_url: file://packer/build/datahub-trusty64.box
+
+vagrant_user: vagrant
+vagrant_synced_folder_default_type: nfs
+vagrant_gui: false
+
+# If you need to run multiple instances of Datahub Box VM, 
+# set a unique hostname, machine name, and IP address for 
+# each instance.
+vagrant_hostname: datahub.box
+vagrant_machine_name: datahubbox
+vagrant_ip: 192.168.2.152
+
+# Allow Datahub Box VM to be accessed via a public network 
+# interface on your host. Vagrant boxes are insecure by default, 
+# so be careful. You've been warned!
+# See: https://docs.vagrantup.com/v2/networking/public_network.html
+vagrant_public_ip: ""
+
+
+# A list of synced folders, with the keys 'local_path', 'destination', and
+# a 'type' of [nfs|rsync|smb] (leave empty for slow native shares).
+vagrant_synced_folders:
+  # The first synced folder will be used for the default Datahub installation, if
+  # any of the build_* settings are 'true'. By default the folder is set to
+  # the datahub folder.
+  - local_path: /Users/matthiasvandermaesen/Workspace/datahub
+    destination: /vagrant
+    type: nfs
+create: true
+
+# Memory and CPU to use for this VM.
+vagrant_memory: 5120
+vagrant_cpus: 1
+
+# Ensure vagrant plugins are installed.
+vagrant_plugins:
+  - name: vagrant-vbguest
+  - name: vagrant-hostsupdater
+
+# Minimum required versions.
+datahubbox_vagrant_version_min: '1.8.6'
+
+# Domain names
+datahub_domain: datahub.box
+blacklight_domain: blacklight.box
+
+# Nginx hosts. Each site will get a server entry using the configuration defined
+# here. 
+nginx_hosts:
+  - server_name: "{{ datahub_domain }} www.{{ datahub_domain }}"
+
+  - server_name: "{{ blacklight_domain }} www.{{ blacklight_domain }}"
+
+
+

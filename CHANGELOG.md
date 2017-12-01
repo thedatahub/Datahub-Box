@@ -1,0 +1,7 @@
+# Datahub Box VM ChangeLog
+
+## NEXT
+
+    * Added #7: configurable options in Vagrantfile via YAML configuration.
+
+## 0.1.0 (2017-12-01)
