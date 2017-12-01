@@ -23,6 +23,7 @@
       apt: pkg={{ item }} state=latest
       with_items:
         - zip
+        - unzip
         - libcurl4-openssl-dev
         - pkg-config
         - libssl-dev
