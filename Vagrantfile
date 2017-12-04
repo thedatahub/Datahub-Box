@@ -102,6 +102,16 @@ Vagrant.configure(2) do |config|
     v.gui = vconfig['vagrant_gui']
   end
 
+  # VMware Fusion.
+  config.vm.provider :vmware_fusion do |v, override|
+    # HGFS kernel module currently doesn't load correctly for native shares.
+    override.vm.synced_folder host_project_dir, '/vagrant', type: 'nfs'
+
+    v.gui = vconfig['vagrant_gui']
+    v.vmx['memsize'] = vconfig['vagrant_memory']
+    v.vmx['numvcpus'] = vconfig['vagrant_cpus']
+  end
+
   # Cache packages and dependencies if vagrant-cachier plugin is present.
   if Vagrant.has_plugin?('vagrant-cachier')
     config.cache.scope = :box
