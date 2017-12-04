@@ -19,5 +19,5 @@ mongodb_users:
     name: "datahub",
     password: "datahub",
     roles: "dbOwner",
-    database: "datahub"
+    database: "admin"
 }
