@@ -49,25 +49,21 @@ After a few minutes, Packer should tell you the box was generated succesfully.
 You'll find the box file in the `packer/build` directory.
 
 If you want to only build a box for one of the supported virtualization
-platforms (e.g. only build the VMware box), add --only=vmware-iso to the packer
-build command:
+platforms (e.g. only build the Virtualbox box), add --only=virtualbox-iso to   
+the packer build command:
 
 ```
-$ packer build --only=vmware-iso datahub.json
+$ packer build --only=vrtualbox-iso datahub.json
 ```
 
 ## Using built boxes
 
 There's an included Vagrantfile that allows quick testing of the built Vagrant
-boxes. From this same directory, run one of the following commands after
-building the boxes:
+boxes. From this same directory, run one of the following command after 
+building the box with Packer:
 
 ```
-# For VMware Fusion:
-$ vagrant up vmware --provider=vmware_fusion
-
-# For VirtualBox:
-$ vagrant up virtualbox --provider=virtualbox
+$ vagrant up
 ```
 
 Append these lines to your `/etc/hosts` file:
@@ -101,12 +97,10 @@ This box contains Ubuntu 14.04.1 Server (AMD 64) with these packages:
 * Git
 * PHP-FPM 7 (with mongdb extension)
 * Ruby 2.4.1 (with rails and bundler)
-* Perl 5.14.1 (with plenv)
 * Oracle Java 8
 * Nginx
 * MongoDB 3.2
 * Rails 5.0.0
-* Solr 6.4.2
 
 ## Authors
 

@@ -2,6 +2,7 @@
 
 ## NEXT
 
+    * Added: VMWare Fusion support.
     * Added: missing unzip package.
     * Added #7: configurable options in Vagrantfile via YAML configuration.
 

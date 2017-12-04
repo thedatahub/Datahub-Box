@@ -118,5 +118,7 @@ end
 
 # Return a default post_up_message.
 def get_default_post_up_message(vconfig)
-  'Your Datahub VM Vagrant box is ready to use!'
+  'Your Datahub VM Vagrant box is ready to use!'\
+   "\n Visit https://github.com/thedatahub/datahub for instructions on how to"\
+   "\n install a new instance of the Datahub."
 end
