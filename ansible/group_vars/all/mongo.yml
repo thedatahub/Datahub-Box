@@ -18,6 +18,6 @@ mongodb_users:
   - {
     name: "datahub",
     password: "datahub",
-    roles: "dbOwner",
+    roles: "dbAdmin",
     database: "admin"
 }
