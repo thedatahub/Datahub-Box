@@ -2,6 +2,7 @@
 
 ## NEXT
 
+	* Changed: turn datahub user into a dbOwner.
     * Added: VMWare Fusion support.
     * Added: missing unzip package.
     * Added #7: configurable options in Vagrantfile via YAML configuration.
