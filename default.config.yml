@@ -27,7 +27,7 @@ vagrant_synced_folders:
   # The first synced folder will be used for the default Datahub installation, if
   # any of the build_* settings are 'true'. By default the folder is set to
   # the datahub folder.
-  - local_path: /Users/matthiasvandermaesen/Workspace/datahub
+  - local_path: .
     destination: /vagrant
     type: nfs
 create: true

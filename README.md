@@ -58,15 +58,56 @@ $ packer build --only=vrtualbox-iso datahub.json
 
 ## Using built boxes
 
-There's an included Vagrantfile that allows quick testing of the built Vagrant
-boxes. From this same directory, run one of the following command after 
-building the box with Packer:
+### Configuration
+
+Copy the `default.config.yml` file to `config.yml`. 
+
+```
+$ cp default.config.yml config.yml
+```
+
+Change the variables in the configuration file for your particular setup. 
+Make sure you point the `vagrant_synced_folders` to the directory on the host 
+machine where you installed both an instance of the datahub and Project 
+Blacklight. If you're setup looks like this:
+
+```
+$ cd ~/Projects
+$ ls -lah
+drwxr-xr-x  12 user  staff   408B Oct 24 11:09 .
+drwxr-xr-x  58 user  staff   1.9K Dec  2 16:50 ..
+drwxr-xr-x  20 user  staff   680B Dec  6 14:05 datahub
+drwxr-xr-x  27 user  staff   918B Oct 24 15:59 project-blacklight
+```
+
+the YAML configuration should look like this:
+
+```
+vagrant_synced_folders:
+  # The first synced folder will be used for the default Datahub installation, if
+  # any of the build_* settings are 'true'. By default the folder is set to
+  # the datahub folder.
+  - local_path: /Users/username/Projects
+    destination: /vagrant
+    type: nfs
+create: true
+```
+
+Note: if you change the name of the `datahub` and `project-blacklight` folders, 
+you will have to update the variables in `ansible/group_vars/all/nginx.yml` as 
+well and run the `ansible-playbook` command to update the box with the new 
+settings.
+
+### Using the box
+
+After updating the `config.yml` file, run the following command.
 
 ```
 $ vagrant up
 ```
 
-Append these lines to your `/etc/hosts` file:
+Vagrant will automatically update your `/etc/hosts` file with the correct 
+entries. If this hasn't happened, append these lines to your `/etc/hosts` file:
 
 ```
 192.168.1.152   datahub.box      # http://datahub.box
@@ -101,6 +142,10 @@ This box contains Ubuntu 14.04.1 Server (AMD 64) with these packages:
 * Nginx
 * MongoDB 3.2
 * Rails 5.0.0
+
+## Credits
+
+
 
 ## Authors
 
