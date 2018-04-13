@@ -67,5 +67,6 @@
     - { role: undergreen.mongo,                      tags: [ "mongo" ] }
     - { role: geerlingguy.java,                      tags: [ "java" ] }
     - { role: geerlingguy.ruby,                      tags: [ "ruby" ] }
+    - { role: datahub.passenger,                     tags: [ "passenger" ] }
     - { role: datahub.blacklight,                    tags: [ "blacklight" ] }
 

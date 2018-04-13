@@ -142,9 +142,9 @@ This box contains Ubuntu 14.04.1 Server (AMD 64) with these packages:
 * Nginx
 * MongoDB 3.2
 * Rails 5.0.0
+* Phusion Passenger
 
 ## Credits
-
 
 
 ## Authors
