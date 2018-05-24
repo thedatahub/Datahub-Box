@@ -60,15 +60,46 @@ nginx_vhosts:
 
   - listen: "80"
     server_name: "blacklight.box"
-#    root: "/vagrant/project-blacklight"
-#    index: "index.php index.html index.htm"
-#    error_page: ""
+    root: "/vagrant/project-blacklight"
+    index: "index.php index.html index.htm"
+#   error_page: ""
     access_log: "/var/log/nginx/blacklight_project_access.log"
     error_log: "/var/log/nginx/blacklight_project_error.log"
     extra_parameters: |
+      location / {
+        proxy_pass         http://127.0.0.1:3000/;
+        proxy_redirect     off;
+
+        proxy_set_header   Host             $host;
+        proxy_set_header   X-Real-IP        $remote_addr;
+        proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
+      }
+
+# Passenger configuration (does not work properly with Rails)
+#
+#  - listen: "80"
+#    server_name: "blacklight.box"
+#    root: "/vagrant/project-blacklight"
+#    index: "index.php index.html index.htm"
+#    error_page: ""
+#    access_log: "/var/log/nginx/blacklight_project_access.log"
+#    error_log: "/var/log/nginx/blacklight_project_error.log"
+#    extra_parameters: |
+#        passenger_enabled on;
+#        passenger_app_env development;
+#        root /vagrant/project-blacklight/public;
+
+  - listen: "80"
+    server_name: "rails.box"
+#    root: "/vagrant/project-blacklight"
+#    index: "index.php index.html index.htm"
+#    error_page: ""
+    access_log: "/var/log/nginx/rails_project_access.log"
+    error_log: "/var/log/nginx/rails_project_error.log"
+    extra_parameters: |
         passenger_enabled on;
         passenger_app_env development;
-        root /vagrant/project-blacklight/public;
+        root /vagrant/railsapp/public;
 
   - listen: "80"
     server_name: "xhprof.box"
