@@ -35,7 +35,7 @@ Vagrant.configure(2) do |config|
   config.vm.define vconfig['vagrant_hostname']
 
   # Disable guest additions
-  # config.vbguest.auto_update = false
+  config.vbguest.auto_update = false
 
   # Networking configuration.
   config.vm.hostname = vconfig['vagrant_hostname']
