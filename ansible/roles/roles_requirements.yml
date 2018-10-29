@@ -21,7 +21,7 @@
   name: geerlingguy.composer
 
 - src: git+https://github.com/UnderGreen/ansible-role-mongodb.git
-  version: "v2.0.2"
+  version: "v2.4.4"
   name: undergreen.mongo
 
 - src: git+https://github.com/rvm/rvm1-ansible
