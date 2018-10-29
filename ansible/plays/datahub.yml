@@ -29,6 +29,7 @@
         - libssl-dev
         - libsslcommon2-dev
         - libsqlite3-dev
+        - imagemagick
 
     - name: Remove system Ruby
       apt:
@@ -66,8 +67,4 @@
     - { role: geerlingguy.composer,                  tags: [ "composer" ] }
     - { role: undergreen.mongo,                      tags: [ "mongo" ] }
     - { role: geerlingguy.java,                      tags: [ "java" ] }
-    - { role: geerlingguy.ruby,                      tags: [ "ruby" ] }
-    - { role: datahub.passenger,                     tags: [ "passenger" ] }
-    - { role: datahub.blacklight,                    tags: [ "blacklight" ] }
-
     - { role: rvm.ruby,                              tags: [ "ruby" ] }
