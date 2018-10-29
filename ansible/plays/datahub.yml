@@ -70,3 +70,4 @@
     - { role: datahub.passenger,                     tags: [ "passenger" ] }
     - { role: datahub.blacklight,                    tags: [ "blacklight" ] }
 
+    - { role: rvm.ruby,                              tags: [ "ruby" ] }

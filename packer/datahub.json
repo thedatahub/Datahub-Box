@@ -26,6 +26,7 @@
         "../ansible/roles/internal/geerlingguy.java",
         "../ansible/roles/external/geerlingguy.ruby",
         "../ansible/roles/internal/datahub.blacklight"
+        "../ansible/roles/external/rvm.ruby"
       ]
     },
     {

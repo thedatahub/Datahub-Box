@@ -1,12 +1,11 @@
 ---
 
-ansible_user: vagrant
+# Install 1 or more versions of ruby
+# The last ruby listed will be set as the default ruby
+rvm1_rubies:
+  - 'ruby-2.5.3'
 
-ruby_install_from_source: True
-ruby_download_url: http://cache.ruby-lang.org/pub/ruby/2.5/ruby-2.5.1.tar.gz
-ruby_version: 2.5.1
-
-ruby_rubygems_package_name: rubygems-integration
-
-ruby_install_gems: ['bundler', 'rails']
-
+# Set the owner for the rvm directory
+# NOTE: If you are doing a ROOT BASED INSTALL then
+#       make sure you set rvm1_user to 'root'
+rvm1_user: 'vagrant'

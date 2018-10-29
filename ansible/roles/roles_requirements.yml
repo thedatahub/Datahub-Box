@@ -20,11 +20,10 @@
   version: "master"
   name: geerlingguy.composer
 
-- src: git+https://github.com/geerlingguy/ansible-role-ruby.git
-  version: "master"
-  name: geerlingguy.ruby
-
 - src: git+https://github.com/UnderGreen/ansible-role-mongodb.git
   version: "v2.0.2"
   name: undergreen.mongo
 
+- src: git+https://github.com/rvm/rvm1-ansible
+  version: "v2.0.1"
+  name: rvm.ruby
