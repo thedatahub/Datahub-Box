@@ -30,6 +30,7 @@
         - libsslcommon2-dev
         - libsqlite3-dev
         - imagemagick
+        - gpgv2
 
     - name: Remove system Ruby
       apt:
