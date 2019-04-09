@@ -1,0 +1,12 @@
+# This is inventory file for development stage
+
+# Copy or rename this file from datahub.default to datahub
+# Change the path-to-machine and let it point to the folder that contains your
+# Datahub-Box instance (i.e. /Users/john/Machines/Datahub-Box)
+
+[datahub]
+192.168.2.152 ansible_ssh_user='vagrant' ansible_ssh_private_key_file='/path-to-machine/.vagrant/machines/datahub.box/virtualbox/private_key'
+
+[localhost]
+localhost ansible_connection=local
+

@@ -49,7 +49,7 @@ Vagrant.configure(2) do |config|
   end
 
   # SSH options.
-  config.ssh.insert_key = false
+  # config.ssh.insert_key = false
   config.ssh.forward_agent = true
 
   # Vagrant box.
