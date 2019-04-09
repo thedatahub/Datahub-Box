@@ -1,7 +1,7 @@
 ---
 
-vagrant_box: datahub-xenial64
-vagrant_box_url: file://packer/build/datahub-xenial64.box
+vagrant_box: datahub-bionic64
+vagrant_box_url: file://packer/build/datahub-bionic64.box
 
 vagrant_user: vagrant
 vagrant_synced_folder_default_type: nfs
