@@ -7,7 +7,7 @@ dependencies for developing, deploying and managing [thedatahub/datahub](github.
 and [projectblacklight/blacklight](https://github.com/projectblacklight/blacklight)
 on a local or remote hosts.
 
-You'll get an [Ubuntu 14.04.01 Server (AMD 64)](old-releases.ubuntu.com/releases/trusty/)
+You'll get an [Ubuntu 16.04.5 Server (AMD 64)](old-releases.ubuntu.com/releases/trusty/)
 box ready for use with [Vagrant](https://www.vagrantup.com/). This box is
 provisioned with [Ansible](https://www.ansible.com/).
 
@@ -30,10 +30,24 @@ you can use Packer to build the Vagrant box file:
 
 ## How to use
 
-Make sure you have all the required software (listed above) before is installed,
-then cd into the `ansible/extension/setup` directory and run:
+Then copy or rename the `datahub.default` file which contains the Ansible 
+configuration file:
+
+```bash
+$ cp ./ansible/datahub.default ./ansible/datahub
+```
+
+Change the `path-to-machine` string in the inventory configuration and let it
+point to the directory that contains the Datahub-Box installation i.e:
 
 ```
+ansible_ssh_private_key_file='/Users/John/Machines/My-Box/.vagrant/machines/datahub.box/virtualbox/private_key'
+```
+
+Next, make sure you have all the required software (listed above) before is installed,
+then cd into the `ansible/extension/setup` directory and run:
+
+```bash
 $ sh role_update.sh
 ```
 
@@ -41,7 +55,7 @@ This script will pull down a set of external ansible roles created and
 maintained by other authors. These are installed in the `ansible/roles/external`
 directory. Then cd into the `packer` directory and run:
 
-```
+```bash
 $ packer build datahub.json
 ```
 
@@ -52,8 +66,8 @@ If you want to only build a box for one of the supported virtualization
 platforms (e.g. only build the Virtualbox box), add --only=virtualbox-iso to   
 the packer build command:
 
-```
-$ packer build --only=vrtualbox-iso datahub.json
+```bash
+$ packer build --only=virtualbox-iso datahub.json
 ```
 
 ## Using built boxes
@@ -62,7 +76,7 @@ $ packer build --only=vrtualbox-iso datahub.json
 
 Copy the `default.config.yml` file to `config.yml`. 
 
-```
+```bash
 $ cp default.config.yml config.yml
 ```
 
@@ -71,7 +85,7 @@ Make sure you point the `vagrant_synced_folders` to the directory on the host
 machine where you installed both an instance of the datahub and Project 
 Blacklight. If you're setup looks like this:
 
-```
+```bash
 $ cd ~/Projects
 $ ls -lah
 drwxr-xr-x  12 user  staff   408B Oct 24 11:09 .
@@ -82,7 +96,7 @@ drwxr-xr-x  27 user  staff   918B Oct 24 15:59 project-blacklight
 
 the YAML configuration should look like this:
 
-```
+```bash
 vagrant_synced_folders:
   # The first synced folder will be used for the default Datahub installation, if
   # any of the build_* settings are 'true'. By default the folder is set to
@@ -102,14 +116,14 @@ settings.
 
 After updating the `config.yml` file, run the following command.
 
-```
+```bash
 $ vagrant up
 ```
 
 Vagrant will automatically update your `/etc/hosts` file with the correct 
 entries. If this hasn't happened, append these lines to your `/etc/hosts` file:
 
-```
+```bash
 192.168.1.152   datahub.box      # http://datahub.box
 192.168.1.152   blacklight.box   # http://blacklight.box
 ```
@@ -137,12 +151,11 @@ This box contains Ubuntu 14.04.1 Server (AMD 64) with these packages:
 
 * Git
 * PHP-FPM 7 (with mongdb extension)
-* Ruby 2.4.1 (with rails and bundler)
+* Ruby 2.5.3 via rvm (with rails and bundler)
 * Oracle Java 8
 * Nginx
 * MongoDB 3.2
 * Rails 5.0.0
-* Phusion Passenger
 
 ## Credits
 
