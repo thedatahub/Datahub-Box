@@ -47,13 +47,12 @@ datahubbox_vagrant_version_min: '1.8.6'
 # Domain names
 datahub_domain: datahub.box
 blacklight_domain: blacklight.box
+dashboard_domain: dashboard.box
 
 # Nginx hosts. Each site will get a server entry using the configuration defined
 # here. 
 nginx_hosts:
   - server_name: "{{ datahub_domain }} www.{{ datahub_domain }}"
-
   - server_name: "{{ blacklight_domain }} www.{{ blacklight_domain }}"
-
-
+  - server_name: "{{ dashboard_domain }} www.{{ dashboard_domain }}"
 
