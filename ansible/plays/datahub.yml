@@ -31,6 +31,8 @@
         - libsqlite3-dev
         - imagemagick
         - gpgv2
+        - libxml2-dev
+        - libxslt1-dev
 
     - name: Remove system Ruby
       apt:
