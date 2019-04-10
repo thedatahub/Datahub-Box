@@ -5,7 +5,7 @@ echo "vagrant        ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers
 sed -i "s/^.*requiretty/#Defaults requiretty/" /etc/sudoers
 
 # Install necessary dependencies
-apt-get -y -q install curl wget git vim
+apt-get -y -q install curl wget git vim dkms build-essential linux-headers-generic
 
 # Installing vagrant keys
 mkdir /home/vagrant/.ssh
