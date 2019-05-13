@@ -24,6 +24,10 @@
   version: "v2.4.4"
   name: undergreen.mongo
 
+- src: git+https://github.com/geerlingguy/ansible-role-java
+  version: "1.9.5"
+  name: geerlingguy.java
+
 - src: git+https://github.com/rvm/rvm1-ansible
   version: "v2.1.2"
   name: rvm.ruby

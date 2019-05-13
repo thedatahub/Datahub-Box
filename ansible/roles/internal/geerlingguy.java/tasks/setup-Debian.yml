@@ -1,9 +1,0 @@
----
-
-- name: Accept Java 8 License
-  become: yes
-  debconf: name='oracle-java8-installer' question='shared/accepted-oracle-license-v1-1' value='true' vtype='select'
-
-- name: Ensure Java is installed.
-  apt: "name={{ item }} state=present"
-  with_items: "{{ java_packages }}"

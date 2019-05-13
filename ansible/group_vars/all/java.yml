@@ -1,5 +1,4 @@
 ---
 java_packages:
-  - oracle-java8-installer
   - ca-certificates
-  - oracle-java8-set-default
+  - openjdk-11-jre
