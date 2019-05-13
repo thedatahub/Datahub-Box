@@ -31,3 +31,11 @@
 - src: git+https://github.com/rvm/rvm1-ansible
   version: "v2.1.2"
   name: rvm.ruby
+
+- src: git+https://github.com/geerlingguy/ansible-role-mysql
+  version: "master"
+  name: geerlingguy.mysql
+
+- src: git+https://github.com/geerlingguy/ansible-role-php-mysql
+  version: "master"
+  name: geerlingguy.php-mysql
