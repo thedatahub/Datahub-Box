@@ -1,4 +1,4 @@
 ---
 java_packages:
   - ca-certificates
-  - openjdk-11-jre
+  - openjdk-9-jre
