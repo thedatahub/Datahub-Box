@@ -20,10 +20,14 @@
         "../ansible/roles/external/geerlingguy.nginx",
         "../ansible/roles/external/geerlingguy.php",
         "../ansible/roles/external/geerlingguy.php-pecl",
+        "../ansible/roles/external/geerlingguy.mysql",
+        "../ansible/roles/external/geerlingguy.php-mysql",
         "../ansible/roles/external/geerlingguy.composer",
         "../ansible/roles/external/undergreen.mongo",
-        "../ansible/roles/internal/geerlingguy.java",
-        "../ansible/roles/external/rvm.ruby"
+        "../ansible/roles/external/rvm.ruby",
+        "../ansible/roles/external/geerlingguy.java",
+        "../ansible/roles/internal/datahub.node",
+        "../ansible/roles/internal/datahub.perl"
       ]
     },
     {

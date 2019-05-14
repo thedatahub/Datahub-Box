@@ -1,0 +1,20 @@
+---
+# tasks file for blacklight.node
+
+- name: exist nodejs
+  stat: path=/usr/bin/node
+  register: exist_node
+  become: yes
+  changed_when: false
+
+- name: install nodesource PPA
+  shell: "curl -sL https://deb.nodesource.com/setup_8.x | sudo bash"
+  become: yes
+  when: not exist_node.stat.exists
+
+- name: Install nodejs
+  apt:
+    pkg:  ['nodejs']
+    state: latest
+  become: yes
+  when: not exist_node.stat.exists

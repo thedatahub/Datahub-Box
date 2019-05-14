@@ -58,4 +58,6 @@
     - { role: geerlingguy.composer,                  tags: [ "composer" ] }
     - { role: undergreen.mongo,                      tags: [ "mongo" ] }
     - { role: geerlingguy.java,                      tags: [ "java" ] }
+    - { role: datahub.node,                          tags: [ "node" ] } 
+    - { role: datahub.perl,                          tags: [ "perl" ] } 
     - { role: rvm.ruby,                              tags: [ "ruby" ] }
