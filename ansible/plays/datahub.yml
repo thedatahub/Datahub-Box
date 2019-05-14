@@ -16,19 +16,9 @@
       apt: update_cache=yes
 
     - name: Install System Packages
-      apt: pkg={{ item }} state=latest
-      with_items:
-        - zip
-        - unzip
-        - libcurl4-openssl-dev
-        - pkg-config
-        - libssl-dev
-        - libsslcommon2-dev
-        - libsqlite3-dev
-        - imagemagick
-        - gpgv2
-        - libxml2-dev
-        - libxslt1-dev
+      apt:
+        pkg:  ['zip', 'unzip', 'libcurl4-openssl-dev', 'pkg-config', 'libssl-dev', 'libsqlite3-dev', 'imagemagick','gpgv2', 'libxml2-dev', 'libxslt1-dev', 'nodejs']
+        state: latest
 
     - name: Remove system Ruby
       apt:
