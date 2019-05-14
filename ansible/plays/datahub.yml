@@ -7,10 +7,6 @@
 
   pre_tasks:
 
-    - name: Installing repo for Java 8 in Ubuntu
-      become: true
-      apt_repository: repo='ppa:webupd8team/java'
-
     - name: Add ppa Repository
       become: true
       apt_repository: repo=ppa:ondrej/php
